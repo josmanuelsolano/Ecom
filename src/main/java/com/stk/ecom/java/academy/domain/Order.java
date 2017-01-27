@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -20,7 +20,7 @@ public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "order_id", nullable = false)
-	private int orderId;
+	private Long orderId;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_id")
@@ -31,13 +31,13 @@ public class Order implements Serializable{
 	private Cart cartId;
 	
 	@Column(name = "quantity", nullable = false)
-	private int quantity;
+	private double quantity;
 
-	public int getOrderId() {
+	public Long getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 
@@ -57,11 +57,11 @@ public class Order implements Serializable{
 		this.cartId = cartId;
 	}
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 
@@ -70,9 +70,11 @@ public class Order implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cartId == null) ? 0 : cartId.hashCode());
-		result = prime * result + orderId;
+		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
-		result = prime * result + quantity;
+		long temp;
+		temp = Double.doubleToLongBits(quantity);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -90,17 +92,21 @@ public class Order implements Serializable{
 				return false;
 		} else if (!cartId.equals(other.cartId))
 			return false;
-		if (orderId != other.orderId)
+		if (orderId == null) {
+			if (other.orderId != null)
+				return false;
+		} else if (!orderId.equals(other.orderId))
 			return false;
 		if (productId == null) {
 			if (other.productId != null)
 				return false;
 		} else if (!productId.equals(other.productId))
 			return false;
-		if (quantity != other.quantity)
+		if (Double.doubleToLongBits(quantity) != Double.doubleToLongBits(other.quantity))
 			return false;
 		return true;
 	}
 
+	
 	
 }

@@ -21,10 +21,10 @@ public class Cart implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "cart_id", nullable = false)
-	private int carId;
+	private Long carId;
 	
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
+	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customerId;
 	
 	@Column(name = "amount", nullable = false)
@@ -33,11 +33,11 @@ public class Cart implements Serializable{
 	@Embedded
 	private Audit audit;
 
-	public int getCarId() {
+	public Long getCarId() {
 		return carId;
 	}
 
-	public void setCarId(int carId) {
+	public void setCarId(Long carId) {
 		this.carId = carId;
 	}
 
@@ -73,7 +73,7 @@ public class Cart implements Serializable{
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((audit == null) ? 0 : audit.hashCode());
-		result = prime * result + carId;
+		result = prime * result + ((carId == null) ? 0 : carId.hashCode());
 		result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
 		return result;
 	}
@@ -94,7 +94,10 @@ public class Cart implements Serializable{
 				return false;
 		} else if (!audit.equals(other.audit))
 			return false;
-		if (carId != other.carId)
+		if (carId == null) {
+			if (other.carId != null)
+				return false;
+		} else if (!carId.equals(other.carId))
 			return false;
 		if (customerId == null) {
 			if (other.customerId != null)
