@@ -30,8 +30,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	public Product getProductById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return productRepository.findOne(id);
 	}
 
 	public void removeProduct(Long id) {
