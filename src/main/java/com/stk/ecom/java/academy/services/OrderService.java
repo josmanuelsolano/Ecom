@@ -2,13 +2,13 @@ package com.stk.ecom.java.academy.services;
 
 import java.util.List;
 
-import com.stk.ecom.java.academy.domain.Order;
+import com.stk.ecom.java.academy.domain.OrderEntity;
 
 public interface OrderService {
 	
-	Order addOrder(Order order);
-	Order updateOrder(Order order);
-	List<Order> listOrders();
-	Order getOrderById(Long id);
+	OrderEntity addOrder(OrderEntity order);
+	OrderEntity updateOrder(OrderEntity order);
+	List<OrderEntity> listOrders();
+	OrderEntity getOrderById(Long id);
 	boolean removeOrder(Long id);
 }

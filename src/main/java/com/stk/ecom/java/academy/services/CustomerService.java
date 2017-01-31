@@ -2,14 +2,14 @@ package com.stk.ecom.java.academy.services;
 
 import java.util.List;
 
-import com.stk.ecom.java.academy.domain.Customer;
+import com.stk.ecom.java.academy.domain.CustomerEntity;
 
 public interface CustomerService {
 	
-	Customer addCustomer(Customer customer);
-	Customer updateCustomer(Customer customer);
-	List<Customer> listCustomers();
-	Customer getCustomerById(Long id);
+	CustomerEntity addCustomer(CustomerEntity customer);
+	CustomerEntity updateCustomer(CustomerEntity customer);
+	List<CustomerEntity> listCustomers();
+	CustomerEntity getCustomerById(Long id);
 	boolean removeCustomer(Long id);
 
 }

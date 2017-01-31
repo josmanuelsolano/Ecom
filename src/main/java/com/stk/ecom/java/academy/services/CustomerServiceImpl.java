@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stk.ecom.java.academy.domain.Customer;
+import com.stk.ecom.java.academy.domain.CustomerEntity;
 import com.stk.ecom.java.academy.repositories.CustomerRepository;
 
 @Service
@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService{
 	@Autowired
 	CustomerRepository customerRepository;
 
-	public Customer addCustomer(Customer customer) {
+	public CustomerEntity addCustomer(CustomerEntity customer) {
 		if (isValidCustomer(customer)) {
 			return customerRepository.saveAndFlush(customer);
 		}else{
@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService{
 		}		
 	}
 
-	public Customer updateCustomer(Customer customer) {
+	public CustomerEntity updateCustomer(CustomerEntity customer) {
 		if (isValidCustomer(customer)) {
 			if(customerRepository.exists(customer.getCustomerId())){
 				return customerRepository.saveAndFlush(customer);
@@ -31,11 +31,11 @@ public class CustomerServiceImpl implements CustomerService{
 		return null;
 	}
 
-	public List<Customer> listCustomers() {
+	public List<CustomerEntity> listCustomers() {
 		return customerRepository.findAll();
 	}
 
-	public Customer getCustomerById(Long id) {
+	public CustomerEntity getCustomerById(Long id) {
 		return customerRepository.findOne(id);
 	}
 
@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService{
 		
 	}
 	
-	private boolean isValidCustomer(Customer customer){
+	private boolean isValidCustomer(CustomerEntity customer){
 		if(customer.getUsername().isEmpty()
 				|| customer.getUsername() == null
 				|| customer.getPassword().isEmpty()

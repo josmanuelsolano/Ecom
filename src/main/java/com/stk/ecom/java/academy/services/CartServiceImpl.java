@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stk.ecom.java.academy.domain.Cart;
+import com.stk.ecom.java.academy.domain.CartEntity;
 import com.stk.ecom.java.academy.repositories.CartRepository;
 
 @Service
@@ -14,7 +14,7 @@ public class CartServiceImpl implements CartService{
 	@Autowired
 	CartRepository cartRepository;
 
-	public Cart addCart(Cart cart) {
+	public CartEntity addCart(CartEntity cart) {
 		if (isValidCart(cart)) {
 			return cartRepository.saveAndFlush(cart);
 		}else{
@@ -22,21 +22,21 @@ public class CartServiceImpl implements CartService{
 		}
 	}
 
-	public Cart updateCart(Cart cart) {
+	public CartEntity updateCart(CartEntity cart) {
 		if (isValidCart(cart)) {
 			if (cartRepository.exists(cart.getCarId())) {
-				Cart updatedCart =  cartRepository.findOne(cart.getCarId());
+				CartEntity updatedCart =  cartRepository.findOne(cart.getCarId());
 				return cartRepository.saveAndFlush(updatedCart);
 			}
 		}
 		return null;
 	}
 
-	public List<Cart> listCarts() {
+	public List<CartEntity> listCarts() {
 		return cartRepository.findAll();
 	}
 
-	public Cart getCartById(Long id) {
+	public CartEntity getCartById(Long id) {
 		return cartRepository.findOne(id);
 	}
 
@@ -46,7 +46,7 @@ public class CartServiceImpl implements CartService{
 		
 	}
 	
-	private boolean isValidCart(Cart cart){
+	private boolean isValidCart(CartEntity cart){
 		if (cart.getAmount() == 0.0d) {
 			return false;
 		}

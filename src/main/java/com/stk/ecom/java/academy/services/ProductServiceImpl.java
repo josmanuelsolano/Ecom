@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stk.ecom.java.academy.domain.Product;
+import com.stk.ecom.java.academy.domain.ProductEntity;
 import com.stk.ecom.java.academy.repositories.ProductRepository;
 
 @Service
@@ -14,7 +14,7 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	ProductRepository productRepository;
 
-	public Product addProduct(Product product) {
+	public ProductEntity addProduct(ProductEntity product) {
 		if (isValidProduct(product)) {
 			return productRepository.saveAndFlush(product);
 		}else{
@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService{
 		}
 	}
 
-	public Product updateProduct(Product product) {
+	public ProductEntity updateProduct(ProductEntity product) {
 		if(isValidProduct(product)){
 			if(productRepository.exists(product.getProductId())){
 				return productRepository.saveAndFlush(product);
@@ -31,11 +31,11 @@ public class ProductServiceImpl implements ProductService{
 		return null;
 	}
 
-	public List<Product> listProducts() {	
+	public List<ProductEntity> listProducts() {	
 		return productRepository.findAll();
 	}
 
-	public Product getProductById(Long id) {
+	public ProductEntity getProductById(Long id) {
 		return productRepository.findOne(id);
 	}
 
@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService{
 		
 	}
 	
-	private Boolean isValidProduct(Product product){
+	private Boolean isValidProduct(ProductEntity product){
 		if (product.getName().isEmpty()
 				|| product.getName() == null
 				|| product.getPrice() == 0.0d

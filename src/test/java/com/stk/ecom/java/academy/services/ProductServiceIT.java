@@ -16,7 +16,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
-import com.stk.ecom.java.academy.domain.Product;
+import com.stk.ecom.java.academy.domain.ProductEntity;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(inheritLocations = true)
@@ -31,7 +31,7 @@ public class ProductServiceIT {
 	
 	@Test
 	public void mustBeTrueIfFindAllProducts(){
-		List<Product> products = productService.listProducts();
+		List<ProductEntity> products = productService.listProducts();
 		Assert.assertEquals(5, products.size());
 	}
 }
