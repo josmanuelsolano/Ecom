@@ -43,5 +43,28 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!--<beans profile="dev">
+	
+			<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		        <property name="url" value="jdbc:mysql://localhost:3306/ecom" />
+		        <property name="username" value="ecomSolano" />
+		        <property name="password" value="ecomSolano" />
+			</bean>
+	
+	</beans>
+	
+	-Dspring.profile.active=dev
+	<beans profile="prod">
+	
+			<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		        <property name="url" value="jdbc:mysql://localhost:3306/ecom" />
+		        <property name="username" value="ecomSolano" />
+		        <property name="password" value="ecomSolano" />
+			</bean>
+	
+	</beans>-->
 
 </beans>

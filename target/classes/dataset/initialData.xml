@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<dataset>
+  <product product_id="1" name="Coca-Cola" description="Refresco de cola 600ml" price="12.50" create_date="2017-01-26 20:12:30.0" update_date="2017-01-26 20:12:30.0" stock="19.00"/>
+  <product product_id="2" name="Yogurt LaLa" description="Sabor fresa de 150ml" price="9.95" create_date="2017-01-26 20:13:30.0" update_date="2017-01-26 20:13:30.0" stock="19.00"/>
+  <product product_id="3" name="Rancheritos Sabritas" description="Chile y limon 65gr" price="12.00" create_date="2017-01-26 20:14:30.0" update_date="2017-01-26 20:14:30.0" stock="19.00"/>
+  <product product_id="4" name="Chokis" description="Con chispas de chocolate 100gr" price="13.50" create_date="2017-01-26 20:15:30.0" update_date="2017-01-26 20:15:30.0" stock="19.00"/>
+  <product product_id="5" name="Pinguinos" description="Panecito de chocolate con relleno cremoso 35gr" price="6.00" create_date="2017-01-26 20:16:30.0" update_date="2017-01-26 20:16:30.0" stock="19.00"/>
+
+  <customer customer_id="1" username="manuelsolano" password="msolano" name="Manuel Solano" address="En algun lugar de una gran pais"/>
+
+  <cart cart_id="1" customer_id="1" amount="53.95" create_date="2017-01-26 20:30:00.0" update_date="2017-01-26 20:30:00.0"/>
+
+  <orders order_id="1" product_id="1" cart_id="1" quantity="1.00"/>
+  <orders order_id="2" product_id="2" cart_id="1" quantity="1.00"/>
+  <orders order_id="3" product_id="3" cart_id="1" quantity="1.00"/>
+  <orders order_id="4" product_id="4" cart_id="1" quantity="1.00"/>
+  <orders order_id="5" product_id="5" cart_id="1" quantity="1.00"/>
+
+  
+</dataset>

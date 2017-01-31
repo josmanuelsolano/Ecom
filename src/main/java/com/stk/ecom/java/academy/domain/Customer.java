@@ -18,7 +18,7 @@ public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "customer_Id", nullable = false)
-	private int customerId;
+	private Long customerId;
 	
 	@Column(name = "username", nullable = false)
 	private String username;
@@ -32,10 +32,10 @@ public class Customer implements Serializable {
 	@Column(name = "address", nullable = false)
 	private String address;
 	
-	public int getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 	public String getUsername() {
@@ -67,7 +67,7 @@ public class Customer implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + customerId;
+		result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -87,7 +87,10 @@ public class Customer implements Serializable {
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		if (customerId != other.customerId)
+		if (customerId == null) {
+			if (other.customerId != null)
+				return false;
+		} else if (!customerId.equals(other.customerId))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -106,8 +109,6 @@ public class Customer implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 	
 
 }

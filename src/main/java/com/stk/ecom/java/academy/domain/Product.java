@@ -19,7 +19,7 @@ public class Product implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "product_Id", nullable = false)
-	private int productId;
+	private Long productId;
 	
 	@Column(name = "name", nullable = false)
 	private String name;
@@ -31,16 +31,16 @@ public class Product implements Serializable{
 	private double price;
 	
 	@Column(name = "stock", nullable = false)
-	private int stock;
+	private double stock;
 	
 	@Embedded
 	private Audit audit;
 
-	public int getProductId() {
+	public Long getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
 
@@ -68,11 +68,11 @@ public class Product implements Serializable{
 		this.price = price;
 	}
 
-	public int getStock() {
+	public double getStock() {
 		return stock;
 	}
 
-	public void setStock(int stock) {
+	public void setStock(double stock) {
 		this.stock = stock;
 	}
 
@@ -94,8 +94,9 @@ public class Product implements Serializable{
 		long temp;
 		temp = Double.doubleToLongBits(price);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + productId;
-		result = prime * result + stock;
+		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
+		temp = Double.doubleToLongBits(stock);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -125,13 +126,15 @@ public class Product implements Serializable{
 			return false;
 		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
 			return false;
-		if (productId != other.productId)
+		if (productId == null) {
+			if (other.productId != null)
+				return false;
+		} else if (!productId.equals(other.productId))
 			return false;
-		if (stock != other.stock)
+		if (Double.doubleToLongBits(stock) != Double.doubleToLongBits(other.stock))
 			return false;
 		return true;
 	}
-	
-	
+
 	
 }
