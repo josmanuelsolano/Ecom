@@ -3,6 +3,7 @@ package com.stk.ecom.java.academy.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,40 +33,62 @@ public class Product implements Serializable{
 	@Column(name = "stock", nullable = false)
 	private int stock;
 	
+	@Embedded
+	private Audit audit;
+
 	public int getProductId() {
 		return productId;
 	}
+
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 	public int getStock() {
 		return stock;
 	}
+
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
+	public Audit getAudit() {
+		return audit;
+	}
+
+	public void setAudit(Audit audit) {
+		this.audit = audit;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((audit == null) ? 0 : audit.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		long temp;
@@ -75,6 +98,7 @@ public class Product implements Serializable{
 		result = prime * result + stock;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -84,6 +108,11 @@ public class Product implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
+		if (audit == null) {
+			if (other.audit != null)
+				return false;
+		} else if (!audit.equals(other.audit))
+			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -102,9 +131,6 @@ public class Product implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
 	
 	
 	
