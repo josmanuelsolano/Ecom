@@ -2,36 +2,60 @@ package com.stk.ecom.java.academy.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stk.ecom.java.academy.domain.Customer;
+import com.stk.ecom.java.academy.repositories.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
+	
+	@Autowired
+	CustomerRepository customerRepository;
 
-	public void addCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		
+	public Customer addCustomer(Customer customer) {
+		if (isValidCustomer(customer)) {
+			return customerRepository.saveAndFlush(customer);
+		}else{
+			return null;
+		}		
 	}
 
-	public void updateCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		
+	public Customer updateCustomer(Customer customer) {
+		if (isValidCustomer(customer)) {
+			if(customerRepository.exists(customer.getCustomerId())){
+				return customerRepository.saveAndFlush(customer);
+			}
+		}
+		return null;
 	}
 
 	public List<Customer> listCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		return customerRepository.findAll();
 	}
 
 	public Customer getCustomerById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerRepository.findOne(id);
 	}
 
-	public void removeCustomer(Long id) {
-		// TODO Auto-generated method stub
+	public boolean removeCustomer(Long id) {
+		return false;
 		
+	}
+	
+	private boolean isValidCustomer(Customer customer){
+		if(customer.getUsername().isEmpty()
+				|| customer.getUsername() == null
+				|| customer.getPassword().isEmpty()
+				|| customer.getPassword() == null
+				|| customer.getName().isEmpty()
+				|| customer.getName() == null
+				|| customer.getAddress().isEmpty()
+				|| customer.getAddress() == null){
+			return false;
+		}
+		return true;
 	}
 
 }

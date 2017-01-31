@@ -12,10 +12,10 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
-	<context:component-scan base-package="com.stk.ecom.java.academy.web"/>
+	<context:component-scan base-package="com.stk.ecom.java.academy.controllers"/>
 	<context:component-scan base-package="com.stk.ecom.java.academy.services"/>
 	
-	<jpa:repositories base-package="com.softtek.jpa.repository" entity-manager-factory-ref="entityManagerFactory" />
+	<jpa:repositories base-package="com.stk.ecom.java.academy.repositories" entity-manager-factory-ref="entityManagerFactory" />
 	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
 	   <property name="dataSource" ref="testDataSource" />
@@ -34,7 +34,7 @@
 	</bean>
 	
 	<jdbc:embedded-database id="testDataSource" type="H2">
-              <jdbc:script location="scripts/createTestTables.sql"/>
+              <jdbc:script location="scripts/tables.sql"/>
        </jdbc:embedded-database>
        
        

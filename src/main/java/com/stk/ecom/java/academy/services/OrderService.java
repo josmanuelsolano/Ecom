@@ -6,9 +6,9 @@ import com.stk.ecom.java.academy.domain.Order;
 
 public interface OrderService {
 	
-	void addOrder(Order order);
-	void updateOrder(Order order);
+	Order addOrder(Order order);
+	Order updateOrder(Order order);
 	List<Order> listOrders();
 	Order getOrderById(Long id);
-	void removeOrder(Long id);
+	boolean removeOrder(Long id);
 }

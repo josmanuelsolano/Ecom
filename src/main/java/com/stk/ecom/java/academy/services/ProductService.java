@@ -7,9 +7,9 @@ import com.stk.ecom.java.academy.domain.Product;
 
 public interface ProductService {
 	
-	void addProduct(Product product);
-	void updateProduct(Product product);
+	Product addProduct(Product product);
+	Product updateProduct(Product product);
 	List<Product> listProducts();
 	Product getProductById(Long id);
-	void removeProduct(Long id);
+	boolean removeProduct(Long id);
 }

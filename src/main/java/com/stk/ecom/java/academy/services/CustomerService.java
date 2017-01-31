@@ -6,10 +6,10 @@ import com.stk.ecom.java.academy.domain.Customer;
 
 public interface CustomerService {
 	
-	void addCustomer(Customer customer);
-	void updateCustomer(Customer customer);
+	Customer addCustomer(Customer customer);
+	Customer updateCustomer(Customer customer);
 	List<Customer> listCustomers();
 	Customer getCustomerById(Long id);
-	void removeCustomer(Long id);
+	boolean removeCustomer(Long id);
 
 }

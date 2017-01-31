@@ -6,10 +6,10 @@ import com.stk.ecom.java.academy.domain.Cart;
 
 public interface CartService {
 	
-	void addCart(Cart cart);
-	void updateCart(Cart cart);
+	Cart addCart(Cart cart);
+	Cart updateCart(Cart cart);
 	List<Cart> listCarts();
 	Cart getCartById(Long id);
-	void removeCart(Long id);
+	boolean removeCart(Long id);
 
 }

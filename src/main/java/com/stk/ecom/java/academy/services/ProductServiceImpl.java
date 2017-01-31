@@ -14,18 +14,24 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	ProductRepository productRepository;
 
-	public void addProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+	public Product addProduct(Product product) {
+		if (isValidProduct(product)) {
+			return productRepository.saveAndFlush(product);
+		}else{
+			return null;
+		}
 	}
 
-	public void updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+	public Product updateProduct(Product product) {
+		if(isValidProduct(product)){
+			if(productRepository.exists(product.getProductId())){
+				return productRepository.saveAndFlush(product);
+			}
+		}
+		return null;
 	}
 
-	public List<Product> listProducts() {
-		
+	public List<Product> listProducts() {	
 		return productRepository.findAll();
 	}
 
@@ -33,9 +39,20 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.findOne(id);
 	}
 
-	public void removeProduct(Long id) {
-		// TODO Auto-generated method stub
+	public boolean removeProduct(Long id) {
+		return false;
 		
+	}
+	
+	private Boolean isValidProduct(Product product){
+		if (product.getName().isEmpty()
+				|| product.getName() == null
+				|| product.getPrice() == 0.0d
+				|| product.getDescription().isEmpty()
+				|| product.getDescription() == null) {
+			return false;
+		}
+		return true;
 	}
 
 }
