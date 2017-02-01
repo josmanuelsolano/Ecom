@@ -34,7 +34,7 @@ public class ProductEntity implements Serializable{
 	private double stock;
 	
 	@Embedded
-	private AuditEntity audit;
+	private Audit audit;
 
 	public Long getProductId() {
 		return productId;
@@ -76,11 +76,11 @@ public class ProductEntity implements Serializable{
 		this.stock = stock;
 	}
 
-	public AuditEntity getAudit() {
+	public Audit getAudit() {
 		return audit;
 	}
 
-	public void setAudit(AuditEntity audit) {
+	public void setAudit(Audit audit) {
 		this.audit = audit;
 	}
 

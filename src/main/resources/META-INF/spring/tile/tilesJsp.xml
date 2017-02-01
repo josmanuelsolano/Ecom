@@ -60,4 +60,9 @@
  	<put-attribute name="title" value="Ecom Application - Products List"/>
  	<put-attribute name="body" value="/WEB-INF/views/products/products.jsp"/>
  </definition>
+ 
+ <definition name="customers" extends="baseLayout">
+ 	<put-attribute name="title" value="Ecom Application - Customers List"/>
+ 	<put-attribute name="body" value="/WEB-INF/views/customers/customers.jsp"/>
+ </definition>
 </tiles-definitions> 

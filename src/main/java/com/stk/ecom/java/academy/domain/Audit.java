@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Embeddable
-public class AuditEntity implements Serializable{
+public class Audit implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -53,7 +53,7 @@ public class AuditEntity implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AuditEntity other = (AuditEntity) obj;
+		Audit other = (Audit) obj;
 		if (createDate == null) {
 			if (other.createDate != null)
 				return false;

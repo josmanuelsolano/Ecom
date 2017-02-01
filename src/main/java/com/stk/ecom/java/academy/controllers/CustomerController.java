@@ -20,12 +20,12 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String listCustomersView(){
 		return "customers";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST,
+	@RequestMapping(value = "", method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CustomerEntity>> listCustomer(){
 		List<CustomerEntity> customers = customerService.listCustomers();

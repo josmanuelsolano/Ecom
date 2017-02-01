@@ -21,7 +21,7 @@ public class CartEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "cart_id", nullable = false)
-	private Long carId;
+	private Long cartId;
 	
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
@@ -31,14 +31,14 @@ public class CartEntity implements Serializable{
 	private double amount;
 	
 	@Embedded
-	private AuditEntity auditEntity;
+	private Audit audit;
 
-	public Long getCarId() {
-		return carId;
+	public Long getCartId() {
+		return cartId;
 	}
 
-	public void setCarId(Long carId) {
-		this.carId = carId;
+	public void setCartId(Long cartId) {
+		this.cartId = cartId;
 	}
 
 	public CustomerEntity getCustomerId() {
@@ -57,12 +57,12 @@ public class CartEntity implements Serializable{
 		this.amount = amount;
 	}
 
-	public AuditEntity getAuditEntity() {
-		return auditEntity;
+	public Audit getAudit() {
+		return audit;
 	}
 
-	public void setAuditEntity(AuditEntity auditEntity) {
-		this.auditEntity = auditEntity;
+	public void setAudit(Audit audit) {
+		this.audit = audit;
 	}
 
 	@Override
@@ -72,8 +72,8 @@ public class CartEntity implements Serializable{
 		long temp;
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((auditEntity == null) ? 0 : auditEntity.hashCode());
-		result = prime * result + ((carId == null) ? 0 : carId.hashCode());
+		result = prime * result + ((audit == null) ? 0 : audit.hashCode());
+		result = prime * result + ((cartId == null) ? 0 : cartId.hashCode());
 		result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
 		return result;
 	}
@@ -89,15 +89,15 @@ public class CartEntity implements Serializable{
 		CartEntity other = (CartEntity) obj;
 		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
-		if (auditEntity == null) {
-			if (other.auditEntity != null)
+		if (audit == null) {
+			if (other.audit != null)
 				return false;
-		} else if (!auditEntity.equals(other.auditEntity))
+		} else if (!audit.equals(other.audit))
 			return false;
-		if (carId == null) {
-			if (other.carId != null)
+		if (cartId == null) {
+			if (other.cartId != null)
 				return false;
-		} else if (!carId.equals(other.carId))
+		} else if (!cartId.equals(other.cartId))
 			return false;
 		if (customerId == null) {
 			if (other.customerId != null)

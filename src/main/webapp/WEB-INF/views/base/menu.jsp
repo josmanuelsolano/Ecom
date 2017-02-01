@@ -7,17 +7,16 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/jpaproject">Ecom Application</a>
+		<a class="navbar-brand" href="/Ecom">Ecom Application</a>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav side-nav">
-			<!--<li><a href="/jpaproject/users"><i class="fa fa-users"></i> Users</a></li>-->
-			<li><a href="/Ecom/users"><i class="fa fa-users"></i> Users</a></li>
-			<li><a href="/Ecom/products"><i class="fa fa-shopping-cart"></i> Products</a></li>
+			<li><a href="/Ecom/carts"><i class="fa fa-shopping-cart"></i> Carts</a></li>
+			<li><a href="/Ecom/customers"><i class="fa fa-users"></i> Customers</a></li>
+			<li><a href="/Ecom/products"><i class="fa fa-plus-square"></i> Products</a></li>
 		</ul>
 	</div>
-	<!-- /.navbar-collapse -->
 </nav>

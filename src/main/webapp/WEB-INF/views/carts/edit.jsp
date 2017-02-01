@@ -1,19 +1,19 @@
 
-	<div class="row" ng-controller="CartCtrl" ng-init="editCart()">
+	<div class="row" ng-controller="CartsCtrl" ng-init="editCart()">
           <div class="col-sm-8">
               <form class="form-horizontal" role="form" action="/jpaproject/carts/update" method="POST">
                   <div class="col-sm-12">
                       <div class="col-sm-5">
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Id</label>
+                            <label class="col-sm-5 control-label">Id:</label>
                             <div class="col-sm-6">
-                              <input class="form-control" type="text" name="id" ng-model="cart.cartKey.cartId" readonly="readonly"></input>
+                              <input class="form-control" type="text" name="id" ng-model="cart.cartId" readonly="readonly"></input>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Lines Amount:*</label>
+                            <label class="col-sm-5 control-label">Cart Amount:</label>
                             <div class="col-sm-6">
-                              <input class="form-control" type="text" name="linesAmount" ng-model="cart.cartDetails.linesAmount" required>
+                              <input class="form-control" type="text" name="amount" ng-model="cart.amount" readonly="readonly">
                             </div>
                           </div>
                           <div class="form-group">

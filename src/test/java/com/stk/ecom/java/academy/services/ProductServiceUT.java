@@ -11,7 +11,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.stk.ecom.java.academy.domain.AuditEntity;
+import com.stk.ecom.java.academy.domain.Audit;
 import com.stk.ecom.java.academy.domain.ProductEntity;
 import com.stk.ecom.java.academy.repositories.ProductRepository;
 
@@ -26,7 +26,7 @@ public class ProductServiceUT {
 	
 	private ProductEntity product;
 	
-	private AuditEntity audit;
+	private Audit audit;
 
 	@Test
 	public void listProductsTest() {
@@ -36,7 +36,7 @@ public class ProductServiceUT {
 		product.setName("Coca-Cola");
 		product.setDescription("Refresco de cola 600ml");
 		product.setPrice(12.50);
-		audit = new AuditEntity();
+		audit = new Audit();
 		audit.setCreateDate(new Date(1485490350000L));
 		audit.setUpdateDate(new Date(1485490350000L));
 		product.setAudit(audit);
@@ -53,7 +53,7 @@ public class ProductServiceUT {
 		product.setName("Cheetos");
 		product.setDescription("description");
 		product.setPrice(12.50);
-		audit = new AuditEntity();
+		audit = new Audit();
 		audit.setCreateDate(new Date(1485490350000L));
 		audit.setUpdateDate(new Date(1485490350000L));
 		product.setAudit(audit);
@@ -74,7 +74,7 @@ public class ProductServiceUT {
 		product.setName("Coca-Cola");
 		product.setDescription("Refresco de cola 600ml");
 		product.setPrice(12.50);
-		audit = new AuditEntity();
+		audit = new Audit();
 		audit.setCreateDate(new Date(1485490350000L));
 		audit.setUpdateDate(new Date(1485490350000L));
 		product.setAudit(audit);

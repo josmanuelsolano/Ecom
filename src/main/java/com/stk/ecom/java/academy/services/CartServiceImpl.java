@@ -24,8 +24,8 @@ public class CartServiceImpl implements CartService{
 
 	public CartEntity updateCart(CartEntity cart) {
 		if (isValidCart(cart)) {
-			if (cartRepository.exists(cart.getCarId())) {
-				CartEntity updatedCart =  cartRepository.findOne(cart.getCarId());
+			if (cartRepository.exists(cart.getCartId())) {
+				CartEntity updatedCart =  cartRepository.findOne(cart.getCartId());
 				return cartRepository.saveAndFlush(updatedCart);
 			}
 		}
