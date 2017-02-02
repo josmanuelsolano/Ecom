@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stk.ecom.java.academy.domain.CartEntity;
 import com.stk.ecom.java.academy.domain.OrderEntity;
 import com.stk.ecom.java.academy.repositories.OrderRepository;
 
@@ -42,6 +43,10 @@ public class OrderServiceImpl implements OrderService{
 	public boolean removeOrder(Long id) {
 		return false;
 		
+	}
+	
+	public List<OrderEntity> listOrdersByCart(CartEntity cartEntity) {
+		return orderRepository.findAllOrdersByCartId(cartEntity);
 	}
 	
 	private boolean isValidOrder(OrderEntity order){

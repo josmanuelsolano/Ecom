@@ -15,7 +15,7 @@ ecomApp.controller('CartsCtrl' ,['$scope','$http','$location',
 	$scope.editCart = function(){
 		$http({
 			  method: 'POST',
-			  url: '$location.absUrl()'
+			  url: $location.absUrl()
 			}).then(function successCallback(response) {
 				$scope.cart = response.data;
 				console.log(response.data);

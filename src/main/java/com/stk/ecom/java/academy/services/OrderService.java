@@ -2,6 +2,7 @@ package com.stk.ecom.java.academy.services;
 
 import java.util.List;
 
+import com.stk.ecom.java.academy.domain.CartEntity;
 import com.stk.ecom.java.academy.domain.OrderEntity;
 
 public interface OrderService {
@@ -11,4 +12,5 @@ public interface OrderService {
 	List<OrderEntity> listOrders();
 	OrderEntity getOrderById(Long id);
 	boolean removeOrder(Long id);
+	List<OrderEntity> listOrdersByCart(CartEntity cartEntity);
 }
