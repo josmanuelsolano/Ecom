@@ -31,5 +31,10 @@ public class ProductController {
 		List<ProductEntity> products = productService.listProducts();
 		return new ResponseEntity<List<ProductEntity>>(products, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/{productId}", method = RequestMethod.GET)
+	public String productView() {
+		return "productEdit";
+	}
 
 }

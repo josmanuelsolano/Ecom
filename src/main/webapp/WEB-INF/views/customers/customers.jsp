@@ -17,7 +17,7 @@
 						<td data-ng-bind="customer.username"></td>
 						<td data-ng-bind="customer.address"></td>
 						<td align="center">
-							<a href="customer/{{customer.customerId}}" class="btn btn-primary btn-sm">
+							<a href="customers/{{customer.customerId}}" class="btn btn-primary btn-sm">
 						      	<span class="fa fa-eye"></span> View 
 						      </a>
 						</td>

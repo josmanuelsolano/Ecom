@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
+<!DOCTYPE xml>
 
 <dataset>
   <product product_id="1" name="Coca-Cola" description="Refresco de cola 600ml" price="12.50" create_date="2017-01-26 20:12:30.0" update_date="2017-01-26 20:12:30.0" stock="19.00"/>

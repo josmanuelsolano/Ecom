@@ -8,7 +8,7 @@
 			</small>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="/jpaproject"><i class="icon-dashboard"></i> Home</a></li>
+			<li><a href="/Ecom"><i class="icon-dashboard"></i> Home</a></li>
 			<li class="active"><i class="icon-file-alt"></i> <tiles:insertAttribute name="breadcrumbs"/></li>
 		</ol>
 	</div>
