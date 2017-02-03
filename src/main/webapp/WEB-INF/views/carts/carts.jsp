@@ -1,4 +1,4 @@
-<div class="row" ng-controller="CartsCtrl" ng-init="getCarts()">
+<div class="row" data-ng-controller="CartsCtrl" data-ng-init="getCarts()">
     <div class="col-lg-12">
 		<div class="table-responsive">
 			<table
@@ -13,7 +13,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="cart in carts">
+					<tr data-ng-repeat="cart in carts">
 						<td data-ng-bind="cart.customerId.name"></td>
 						<td data-ng-bind="cart.amount | currency"></td>
 						<td data-ng-bind="cart.audit.createDate | date:'yyyy-MM-dd HH:mm:ss'"></td>
@@ -27,5 +27,8 @@
 				</tbody>
 			</table>
 		</div>
+		<a href="" class="btn btn-success btn-lg"> <span
+			class="fa fa-plus"></span> Add Cart
+		</a>
 	</div>
 </div>

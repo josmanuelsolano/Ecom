@@ -25,7 +25,13 @@ public class ProductServiceImpl implements ProductService{
 	public ProductEntity updateProduct(ProductEntity product) {
 		if(isValidProduct(product)){
 			if(productRepository.exists(product.getProductId())){
-				return productRepository.saveAndFlush(product);
+				ProductEntity updatedProduct = productRepository.findOne(product.getProductId());
+				updatedProduct.setProductId(product.getProductId());
+				updatedProduct.setName(product.getName());
+				updatedProduct.setDescription(product.getDescription());
+				updatedProduct.setPrice(product.getPrice());
+				updatedProduct.setStock(product.getStock());
+				return productRepository.saveAndFlush(updatedProduct);
 			}
 		}
 		return null;

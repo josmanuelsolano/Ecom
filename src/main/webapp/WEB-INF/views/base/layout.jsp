@@ -23,7 +23,7 @@
     
   </head>
 
-  <body ng-app="ecomApp">
+  <body data-ng-app="ecomApp">
 
     <div id="wrapper">
 	  

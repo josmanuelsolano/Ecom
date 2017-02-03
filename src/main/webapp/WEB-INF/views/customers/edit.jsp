@@ -6,13 +6,6 @@
 			<div>
 				<div class="col-sm-4">
 					<div class="form-group">
-						<label class="col-sm-5 control-label">Id:</label>
-						<div class="col-sm-6">
-							<input class="form-control" type="text" name="id"
-								data-ng-model="customer.customerId" readonly>
-						</div>
-					</div>
-					<div class="form-group">
 						<label class="col-sm-5 control-label">Username:</label>
 						<div class="col-sm-6">
 							<input class="form-control" type="text" name="username"

@@ -56,13 +56,18 @@
   <put-attribute name="body" value="/WEB-INF/views/users/edit.jsp"/>
  </definition>
  
- <definition name="products" extends="baseLayout">
+ <definition name="productsList" extends="baseLayout">
  	<put-attribute name="title" value="Ecom Application - Products List"/>
- 	<put-attribute name="body" value="/WEB-INF/views/products/products.jsp"/>
+ 	<put-attribute name="body" value="/WEB-INF/views/products/list.jsp"/>
+ </definition>
+ 
+ <definition name="productView" extends="baseLayout">
+  <put-attribute name="title" value="Ecom Application - Product view"/>
+  <put-attribute name="body" value="/WEB-INF/views/products/view.jsp"/>
  </definition>
  
  <definition name="productEdit" extends="baseLayout">
-  <put-attribute name="title" value="Ecom Application - Product Edit"/>
+  <put-attribute name="title" value="Ecom Application - Product edit"/>
   <put-attribute name="body" value="/WEB-INF/views/products/edit.jsp"/>
  </definition>
  

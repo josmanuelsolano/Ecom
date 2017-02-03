@@ -1,36 +1,29 @@
 <div class="row" data-ng-controller="ProductsCtrl"
-	data-ng-init="getProductEdit()">
+	data-ng-init="getProductView()">
 	<div class="col-sm-12">
 		<form class="form-horizontal" role="form" action="/Ecom/products/update"
 			method="POST">
 			<div>
 				<div class="col-sm-5">
-				<div class="form-group">
-						<label class="col-sm-5 control-label">Id:</label>
-						<div class="col-sm-7">
-							<input class="form-control" type="text" name="productId"
-								data-ng-model="product.productId" readonly>
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-sm-5 control-label">Name:</label>
 						<div class="col-sm-7">
 							<input class="form-control" type="text" name="name"
-								data-ng-model="product.name">
+								data-ng-model="product.name" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-5 control-label">Price:</label>
 						<div class="col-sm-7">
 							<input class="form-control" type="text" name="price"
-								data-ng-model="product.price">
+								data-ng-model="product.price | currency" readonly>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-5 control-label">Stock:</label>
 						<div class="col-sm-7">
 							<input class="form-control" type="text" name="stock"
-								data-ng-model="product.stock">
+								data-ng-model="product.stock" readonly>
 						</div>
 					</div>
 					<div class="form-group">
@@ -50,8 +43,8 @@
 					<div class="form-group">
 						<label class="col-sm-5 control-label">Description:</label>
 						<div class="col-sm-7">
-							<textarea class="form-control" name="description"
-								data-ng-model="product.description"></textarea>
+							<textarea class="form-control" name="updateDate"
+								data-ng-model="product.description" readonly></textarea>
 						</div>
 					</div>
 					<div class="col-sm-3 col-sm-offset-2">
