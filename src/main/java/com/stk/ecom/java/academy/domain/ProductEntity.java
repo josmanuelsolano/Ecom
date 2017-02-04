@@ -35,6 +35,29 @@ public class ProductEntity implements Serializable{
 	
 	@Embedded
 	private Audit audit;
+	
+
+	public ProductEntity() {
+	}
+	
+	
+
+	public ProductEntity(String name, String description, double price, double stock) {
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.stock = stock;
+	}
+
+
+
+	public ProductEntity(Long productId, String name, String description, double price, double stock) {
+		this.productId = productId;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.stock = stock;
+	}
 
 	public Long getProductId() {
 		return productId;
@@ -79,7 +102,7 @@ public class ProductEntity implements Serializable{
 	public Audit getAudit() {
 		return audit;
 	}
-
+	
 	public void setAudit(Audit audit) {
 		this.audit = audit;
 	}

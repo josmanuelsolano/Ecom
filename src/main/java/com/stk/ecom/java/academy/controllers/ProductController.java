@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.stk.ecom.java.academy.domain.ProductEntity;
 import com.stk.ecom.java.academy.services.ProductService;
 
@@ -59,27 +57,36 @@ public class ProductController {
 		return new ResponseEntity<ProductEntity>(product, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/update", method=RequestMethod.POST)
+	@RequestMapping(value = "", method=RequestMethod.POST)
 	public String update(@RequestParam("productId") Long productId,
 			@RequestParam("name") String name,
 			@RequestParam("price") double price,
 			@RequestParam("stock") double stock,
 			@RequestParam("description") String description){
 		
-		ProductEntity product = productService.getProductById(productId);
-		product.setProductId(productId);
-		product.setName(name);
-		product.setPrice(price);
-		product.setStock(stock);
-		product.setDescription(description);
+		ProductEntity product = new ProductEntity(productId, name, description, price, stock);
+		productService.updateProduct(product);
+		return "redirect:/products";
 		
-		if(product == productService.updateProduct(product)){
-			return "productsList";
-		}
+	}
+	
+	@RequestMapping(value = "new", method = RequestMethod.GET)
+	public String productNewView() {
+		return "productNew";
+	}
+	
+	@RequestMapping(value = "new", method = RequestMethod.POST)
+	public String productNew(@RequestParam("name") String name,
+			@RequestParam("price") double price,
+			@RequestParam("stock") double stock,
+			@RequestParam("description") String description) {
 		
+		ProductEntity product = new ProductEntity(name, description, price, stock);
+		productService.addProduct(product);
+		return "redirect:/products";
 		
-		return "productsList";
 		
 	}
 	
 }
+

@@ -37,6 +37,14 @@ public class Audit implements Serializable{
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+	
+	public Audit() {
+	}
+	
+	public Audit(Date createDate, Date updateDate) {
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

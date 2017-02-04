@@ -21,7 +21,7 @@
 							href="customers/{{customer.customerId}}"
 							class="btn btn-primary btn-xs"> <span class="fa fa-eye"></span>
 								View
-						</a> <a href="customers/{{customer.customerId}}"
+						</a> <a href="customers/customers/{{customer.customerId}}"
 							class="btn btn-warning btn-xs"> <span class="fa fa-edit"></span>
 								Edit
 						</a></td>
@@ -29,7 +29,7 @@
 				</tbody>
 			</table>
 		</div>
-		<a href="" class="btn btn-success btn-lg"> <span
+		<a href="/Ecom/customers/new" class="btn btn-success btn-lg"> <span
 			class="fa fa-plus"></span> Add customer
 		</a>
 	</div>

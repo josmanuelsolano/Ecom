@@ -32,6 +32,30 @@ public class CustomerEntity implements Serializable {
 	@Column(name = "address", nullable = false)
 	private String address;
 	
+	
+	public CustomerEntity() {
+	}
+	
+	
+	
+	public CustomerEntity(String username, String password, String name, String address) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+	}
+
+
+
+	public CustomerEntity(Long customerId, String username, String password, String name, String address) {
+		this.customerId = customerId;
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+	}
+	
+
 	public Long getCustomerId() {
 		return customerId;
 	}

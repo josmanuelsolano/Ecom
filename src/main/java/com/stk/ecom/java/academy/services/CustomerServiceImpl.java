@@ -15,17 +15,19 @@ public class CustomerServiceImpl implements CustomerService{
 	CustomerRepository customerRepository;
 
 	public CustomerEntity addCustomer(CustomerEntity customer) {
-		if (isValidCustomer(customer)) {
-			return customerRepository.saveAndFlush(customer);
-		}else{
-			return null;
-		}		
+		return customerRepository.saveAndFlush(customer);	
 	}
 
 	public CustomerEntity updateCustomer(CustomerEntity customer) {
 		if (isValidCustomer(customer)) {
 			if(customerRepository.exists(customer.getCustomerId())){
-				return customerRepository.saveAndFlush(customer);
+				CustomerEntity updatedCustomer = customerRepository.findOne(customer.getCustomerId());
+				updatedCustomer.setCustomerId(customer.getCustomerId());
+				updatedCustomer.setUsername(customer.getUsername());
+				updatedCustomer.setPassword(customer.getPassword());
+				updatedCustomer.setName(customer.getName());
+				updatedCustomer.setAddress(customer.getAddress());
+				return customerRepository.saveAndFlush(updatedCustomer);
 			}
 		}
 		return null;

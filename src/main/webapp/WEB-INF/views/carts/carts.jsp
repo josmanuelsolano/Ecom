@@ -27,8 +27,5 @@
 				</tbody>
 			</table>
 		</div>
-		<a href="" class="btn btn-success btn-lg"> <span
-			class="fa fa-plus"></span> Add Cart
-		</a>
 	</div>
 </div>

@@ -23,10 +23,10 @@ import com.stk.ecom.java.academy.services.OrderService;
 public class CartController {
 
 	@Autowired
-	private CartService cartService;
+	CartService cartService;
 
 	@Autowired
-	private OrderService orderService;
+	OrderService orderService;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String listCartsView() {

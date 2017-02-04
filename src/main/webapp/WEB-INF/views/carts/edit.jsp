@@ -38,35 +38,36 @@
 				</div>
 				<div class="col-sm-8">
 					<div class="panel panel-default">
-						<div class="panel-heading"><b>Products</b></div>
+						<div class="panel-heading">
+							<b>Products</b>
+						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
-						<table
-							class="table table-striped">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Price</th>
-									<th>Qty</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr data-ng-repeat="product in cart.products">
-									<td data-ng-bind="product.productId.name"></td>
-									<td data-ng-bind="product.productId.description"></td>
-									<td data-ng-bind="product.productId.price | currency"></td>
-									<td data-ng-bind="product.quantity"></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+											<th>Price</th>
+											<th>Qty</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr data-ng-repeat="product in cart.products">
+											<td data-ng-bind="product.productId.name"></td>
+											<td data-ng-bind="product.productId.description"></td>
+											<td data-ng-bind="product.productId.price | currency"></td>
+											<td data-ng-bind="product.quantity"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 col-sm-offset-1">
-					<button type="submit" name="update" class="btn btn-info btn-lg">Update</button>
-				</div>
+				<a href="/Ecom/carts" class="btn btn-primary btn-lg">
+					<span class="fa fa-back"></span> Back to List
+				</a>
 			</div>
 		</form>
 	</div>

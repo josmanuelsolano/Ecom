@@ -1,17 +1,10 @@
 <div class="row" data-ng-controller="CustomersCtrl"
-	data-ng-init="getCustomerEdit()">
+	data-ng-init="editCustomer()">
 	<div class="col-sm-12">
-		<form class="form-horizontal" role="form" action="/Ecom/customers"
+		<form class="form-horizontal" role="form" action="/Ecom/customers/new"
 			method="POST">
 			<div>
 				<div class="col-sm-4">
-					<div class="form-group">
-						<label class="col-sm-5 control-label">Id:</label>
-						<div class="col-sm-6">
-							<input class="form-control" type="text" name="customerId"
-								data-ng-model="customer.customerId" readonly>
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-sm-5 control-label">Username:</label>
 						<div class="col-sm-6">
@@ -42,7 +35,7 @@
 					</div>
 					<div class="col-sm-3 col-sm-offset-2">
 					<br>
-					<button type="submit" name="update" class="btn btn-info btn-lg">Update</button>
+					<button type="submit" name="create" class="btn btn-info btn-lg">Create</button>
 				</div>
 				</div>
 			</div>

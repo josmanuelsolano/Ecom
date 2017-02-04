@@ -1,10 +1,12 @@
 package com.stk.ecom.java.academy.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stk.ecom.java.academy.domain.Audit;
 import com.stk.ecom.java.academy.domain.ProductEntity;
 import com.stk.ecom.java.academy.repositories.ProductRepository;
 
@@ -15,11 +17,8 @@ public class ProductServiceImpl implements ProductService{
 	ProductRepository productRepository;
 
 	public ProductEntity addProduct(ProductEntity product) {
-		if (isValidProduct(product)) {
-			return productRepository.saveAndFlush(product);
-		}else{
-			return null;
-		}
+		product.setAudit(new Audit(new Date(), new Date()));
+		return productRepository.saveAndFlush(product);
 	}
 
 	public ProductEntity updateProduct(ProductEntity product) {
@@ -31,6 +30,7 @@ public class ProductServiceImpl implements ProductService{
 				updatedProduct.setDescription(product.getDescription());
 				updatedProduct.setPrice(product.getPrice());
 				updatedProduct.setStock(product.getStock());
+				updatedProduct.getAudit().setUpdateDate(new Date());
 				return productRepository.saveAndFlush(updatedProduct);
 			}
 		}

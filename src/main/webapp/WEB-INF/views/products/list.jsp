@@ -35,7 +35,7 @@
 				</tbody>
 			</table>
 		</div>
-		<a href="" class="btn btn-success btn-lg"> <span
+		<a href="/Ecom/products/new" class="btn btn-success btn-lg"> <span
 			class="fa fa-plus"></span> Add product
 		</a>
 	</div>

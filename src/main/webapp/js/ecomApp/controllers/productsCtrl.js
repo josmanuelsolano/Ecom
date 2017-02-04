@@ -1,5 +1,5 @@
-ecomApp.controller('ProductsCtrl' ,['$scope','$http','$location',
-	function($scope, $http, $location){
+ecomApp.controller('ProductsCtrl' ,['$scope','$http','$location','$window',
+	function($scope, $http, $location, $window){
 	
 	$scope.getProducts = function(){
 		$http({
@@ -35,6 +35,10 @@ ecomApp.controller('ProductsCtrl' ,['$scope','$http','$location',
 			  }, function errorCallback(response) {
 				  console.log(response);
 			  });
+		
 	}
 	
+	
 }]);
+
+

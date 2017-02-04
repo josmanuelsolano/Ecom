@@ -3,7 +3,6 @@ package com.stk.ecom.java.academy.services;
 import java.util.Date;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -63,22 +62,6 @@ public class ProductServiceUT {
 		ProductEntity retrievedProduct = productService.addProduct(product);
 		Assert.assertNotNull(retrievedProduct);
 		
-	}
-	
-	@Test
-	@Ignore
-	public void updateProductTest(){
-		Long productId = new Long(1);
-		product = new ProductEntity();
-		product.setProductId(productId);
-		product.setName("Coca-Cola");
-		product.setDescription("Refresco de cola 600ml");
-		product.setPrice(12.50);
-		audit = new Audit();
-		audit.setCreateDate(new Date(1485490350000L));
-		audit.setUpdateDate(new Date(1485490350000L));
-		product.setAudit(audit);
-		product.setStock(19.00);
 	}
 
 }
